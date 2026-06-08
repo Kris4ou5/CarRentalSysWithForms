@@ -34,13 +34,16 @@ namespace CarRentalForms
 
         private void btnSend_Click(object sender, EventArgs e)
         {
+            if (cmbCars.SelectedItem == null)
+                return;
+
             Car selectedCar =
             (Car)cmbCars.SelectedItem;
  
             carSrvc.SendToMaintenance(selectedCar.Id);
 
             DialogResult = DialogResult.OK;
-            Close();
+            this.Close();
         }
     }
 }
