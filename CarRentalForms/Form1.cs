@@ -151,12 +151,16 @@ namespace CarRentalForms
 
         private void btnAvailableCars_Click(object sender, EventArgs e)
         {
+            AvailableCars form = new AvailableCars(carSrvc);
 
+            form.ShowDialog();
         }
 
         private void btnPriceCalc_Click(object sender, EventArgs e)
         {
+            CalculateRent form = new CalculateRent( carSrvc, rentalSrvc);
 
+            form.ShowDialog();
         }
 
         private void btnService_Click(object sender, EventArgs e)
@@ -179,6 +183,8 @@ namespace CarRentalForms
 
         }
         //Rents
+
+
 
     }
 }
