@@ -24,15 +24,15 @@ namespace CarRentalForms
             rentalSrvc = rentalService;
         }
 
-        private void CalculateRentForm_Load(object sender, EventArgs e)
+        private void CalculateRent_Load(object sender, EventArgs e)
         {
             cmbCars.DataSource =
-                carSrvc.GetAllCars();
+               carSrvc.GetAllCars();
 
             cmbCars.DisplayMember = "Model";
         }
 
-        private void btnCalculate_Click(object sender, EventArgs e)
+        private void btnCalculate_Click_1(object sender, EventArgs e)
         {
             if (cmbCars.SelectedItem == null)
                 return;
@@ -49,14 +49,11 @@ namespace CarRentalForms
             txtResult.Text = price.ToString("F2") + " lv";
         }
 
-        private void CalculateRent_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void label4_Click(object sender, EventArgs e)
         {
 
         }
+
+       
     }
 }

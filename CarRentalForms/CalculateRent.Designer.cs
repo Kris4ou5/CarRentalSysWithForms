@@ -56,6 +56,7 @@
             btnCalculate.TabIndex = 1;
             btnCalculate.Text = "Calculate";
             btnCalculate.UseVisualStyleBackColor = true;
+            btnCalculate.Click += btnCalculate_Click_1;
             // 
             // txtDays
             // 

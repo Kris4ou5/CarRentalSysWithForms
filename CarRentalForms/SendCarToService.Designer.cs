@@ -60,6 +60,7 @@
             btnSend.TabIndex = 2;
             btnSend.Text = "Send To Service:";
             btnSend.UseVisualStyleBackColor = true;
+            btnSend.Click += btnSend_Click;
             // 
             // SendCarToService
             // 

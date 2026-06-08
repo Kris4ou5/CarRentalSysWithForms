@@ -22,7 +22,7 @@ namespace CarRentalForms
             carSrvc = service;
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void btnSearch_Click_1(object sender, EventArgs e)
         {
             DateTime start = dtStart.Value;
             DateTime end = dtEnd.Value;
@@ -34,5 +34,7 @@ namespace CarRentalForms
         {
 
         }
+
+        
     }
 }
