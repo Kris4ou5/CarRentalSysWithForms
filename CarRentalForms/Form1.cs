@@ -50,19 +50,22 @@ namespace CarRentalForms
             {
                 dataCustomers.Refresh();
             }
-       }
+        }
 
         private void btnMain_Click(object sender, EventArgs e)
         {
+
             labelCurPanel.Text = "Main";
             panelMain.BringToFront();
+
         }
 
         private void panelMain_Paint(object sender, PaintEventArgs e)
         {
-            dataGridMainCustomers.DataSource = customerSrvc.GetAllCustomers();
-            dataGridMainRentals.DataSource = rentalSrvc.GetActiveRentals();
-            dataGridMainCars.DataSource = carSrvc.GetAllCars();
+            LoadCarData();
+            LoadCustomerData();
+            LoadRentalsData();
+
         }
 
         private void labelCurPanel_Click(object sender, EventArgs e)
@@ -78,6 +81,8 @@ namespace CarRentalForms
         private void btnCars_Click(object sender, EventArgs e)
         {
             labelCurPanel.Text = "Cars";
+            panelCars.BringToFront();
+            dgvCars.DataSource = carSrvc.GetAllCars();
         }
 
         private void btnRegisterCustomer_Click(object sender, EventArgs e)
@@ -88,7 +93,7 @@ namespace CarRentalForms
             form.ShowDialog();
             if (form.DialogResult == DialogResult.OK)
             {
-                dataCustomers.Refresh();
+                LoadCustomerData();
             }
         }
 
@@ -97,7 +102,72 @@ namespace CarRentalForms
             if (dataCustomers.CurrentRow == null)
                 return;
             Customer customer = dataCustomers.CurrentRow.DataBoundItem as Customer;
-           dataCustomers.DataSource = customerSrvc.GetCustomerRentalHistory(customer.Id);
+            dataCustomers.DataSource = customerSrvc.GetCustomerRentalHistory(customer.Id);
         }
+
+        public static void ChangeButtonColor()
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        //DatalOads
+        public void LoadCarData()
+        {
+            dataGridMainCars.DataSource = carSrvc.GetAllCars();
+        }
+
+        public void LoadCustomerData()
+        {
+            dataGridMainCustomers.DataSource = customerSrvc.GetAllCustomers();
+        }
+        public void LoadRentalsData()
+        {
+            dataGridMainRentals.DataSource = rentalSrvc.GetActiveRentals();
+        }
+        //CARS
+        private void btnAddCar_Click(object sender, EventArgs e)
+        {
+            Form carAddform = new RegisterCarForm(carSrvc);
+            carAddform.ShowDialog();
+
+
+        }
+
+        private void btnChangeCarStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAvailableCars_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPriceCalc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnService_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            LoadCarData();
+            LoadCustomerData();
+            LoadRentalsData();
+            dgvCars.DataSource = carSrvc.GetAllCars();
+            dataCustomers.DataSource = customerSrvc.GetAllCustomers();
+            
+        }
+        //Rents
+
     }
 }

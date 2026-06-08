@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panelSideMain = new Panel();
             btnMain = new Button();
             panel3 = new Panel();
@@ -39,6 +40,13 @@
             logoLabel = new Label();
             panel1 = new Panel();
             pCurPanel = new Panel();
+            panelCars = new Panel();
+            dgvCars = new DataGridView();
+            btnService = new Button();
+            btnPriceCalc = new Button();
+            btnAvailableCars = new Button();
+            btnChangeCarStatus = new Button();
+            btnAddCar = new Button();
             panelMain = new Panel();
             label4 = new Label();
             label3 = new Label();
@@ -55,9 +63,13 @@
             splitter1 = new Splitter();
             label5 = new Label();
             labelCurPanel = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
+            btnRefresh = new Button();
             panelSideMain.SuspendLayout();
             panelLogo.SuspendLayout();
             pCurPanel.SuspendLayout();
+            panelCars.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvCars).BeginInit();
             panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridMainCars).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridMainRentals).BeginInit();
@@ -69,6 +81,7 @@
             // panelSideMain
             // 
             panelSideMain.BackColor = SystemColors.GrayText;
+            panelSideMain.Controls.Add(btnRefresh);
             panelSideMain.Controls.Add(btnMain);
             panelSideMain.Controls.Add(panel3);
             panelSideMain.Controls.Add(btnCars);
@@ -181,6 +194,7 @@
             // pCurPanel
             // 
             pCurPanel.BackColor = SystemColors.ActiveCaption;
+            pCurPanel.Controls.Add(panelCars);
             pCurPanel.Controls.Add(panelMain);
             pCurPanel.Controls.Add(CustomerPanel);
             pCurPanel.Controls.Add(splitter1);
@@ -190,6 +204,77 @@
             pCurPanel.Name = "pCurPanel";
             pCurPanel.Size = new Size(776, 575);
             pCurPanel.TabIndex = 1;
+            // 
+            // panelCars
+            // 
+            panelCars.Controls.Add(dgvCars);
+            panelCars.Controls.Add(btnService);
+            panelCars.Controls.Add(btnPriceCalc);
+            panelCars.Controls.Add(btnAvailableCars);
+            panelCars.Controls.Add(btnChangeCarStatus);
+            panelCars.Controls.Add(btnAddCar);
+            panelCars.Location = new Point(0, 90);
+            panelCars.Name = "panelCars";
+            panelCars.Size = new Size(770, 482);
+            panelCars.TabIndex = 2;
+            // 
+            // dgvCars
+            // 
+            dgvCars.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCars.Location = new Point(262, 68);
+            dgvCars.Name = "dgvCars";
+            dgvCars.Size = new Size(476, 311);
+            dgvCars.TabIndex = 5;
+            // 
+            // btnService
+            // 
+            btnService.Location = new Point(62, 340);
+            btnService.Name = "btnService";
+            btnService.Size = new Size(110, 39);
+            btnService.TabIndex = 4;
+            btnService.Text = "Send Car to Service";
+            btnService.UseVisualStyleBackColor = true;
+            btnService.Click += btnService_Click;
+            // 
+            // btnPriceCalc
+            // 
+            btnPriceCalc.Location = new Point(62, 266);
+            btnPriceCalc.Name = "btnPriceCalc";
+            btnPriceCalc.Size = new Size(110, 39);
+            btnPriceCalc.TabIndex = 3;
+            btnPriceCalc.Text = "Calculate Rent";
+            btnPriceCalc.UseVisualStyleBackColor = true;
+            btnPriceCalc.Click += btnPriceCalc_Click;
+            // 
+            // btnAvailableCars
+            // 
+            btnAvailableCars.Location = new Point(62, 203);
+            btnAvailableCars.Name = "btnAvailableCars";
+            btnAvailableCars.Size = new Size(110, 39);
+            btnAvailableCars.TabIndex = 2;
+            btnAvailableCars.Text = "Show all Available cars";
+            btnAvailableCars.UseVisualStyleBackColor = true;
+            btnAvailableCars.Click += btnAvailableCars_Click;
+            // 
+            // btnChangeCarStatus
+            // 
+            btnChangeCarStatus.Location = new Point(62, 132);
+            btnChangeCarStatus.Name = "btnChangeCarStatus";
+            btnChangeCarStatus.Size = new Size(110, 39);
+            btnChangeCarStatus.TabIndex = 1;
+            btnChangeCarStatus.Text = "Change Car Status";
+            btnChangeCarStatus.UseVisualStyleBackColor = true;
+            btnChangeCarStatus.Click += btnChangeCarStatus_Click;
+            // 
+            // btnAddCar
+            // 
+            btnAddCar.Location = new Point(62, 66);
+            btnAddCar.Name = "btnAddCar";
+            btnAddCar.Size = new Size(110, 39);
+            btnAddCar.TabIndex = 0;
+            btnAddCar.Text = "Register Car";
+            btnAddCar.UseVisualStyleBackColor = true;
+            btnAddCar.Click += btnAddCar_Click;
             // 
             // panelMain
             // 
@@ -348,6 +433,20 @@
             labelCurPanel.Text = "TEST";
             labelCurPanel.Click += labelCurPanel_Click;
             // 
+            // timer1
+            // 
+            timer1.Tick += timer1_Tick;
+            // 
+            // btnRefresh
+            // 
+            btnRefresh.Location = new Point(3, 502);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(204, 28);
+            btnRefresh.TabIndex = 2;
+            btnRefresh.Text = "Refresh";
+            btnRefresh.UseVisualStyleBackColor = true;
+            btnRefresh.Click += btnRefresh_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -363,6 +462,8 @@
             panelLogo.PerformLayout();
             pCurPanel.ResumeLayout(false);
             pCurPanel.PerformLayout();
+            panelCars.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvCars).EndInit();
             panelMain.ResumeLayout(false);
             panelMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridMainCars).EndInit();
@@ -402,5 +503,14 @@
         private DataGridView dataGridMainRentals;
         private Splitter splitter1;
         private Label label5;
+        private System.Windows.Forms.Timer timer1;
+        private Panel panelCars;
+        private Button btnAvailableCars;
+        private Button btnChangeCarStatus;
+        private Button btnAddCar;
+        private Button btnService;
+        private Button btnPriceCalc;
+        private DataGridView dgvCars;
+        private Button btnRefresh;
     }
 }
