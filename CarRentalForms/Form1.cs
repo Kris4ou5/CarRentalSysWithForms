@@ -146,7 +146,7 @@ namespace CarRentalForms
             Form changeStatusForm = new ChangeCarStatusForm(selectedCar, carSrvc);
             changeStatusForm.ShowDialog();
             if (DialogResult.OK != changeStatusForm.DialogResult)
-                throw new ArgumentException("Greshka pri smqna");
+                throw new ArgumentException("Грешка при смяна");
         }
 
         private void btnAvailableCars_Click(object sender, EventArgs e)
@@ -165,7 +165,13 @@ namespace CarRentalForms
 
         private void btnService_Click(object sender, EventArgs e)
         {
+            SendCarToService form = new SendCarToService (carSrvc);
 
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                dgvCars.DataSource = null;
+                dgvCars.DataSource = carSrvc.GetAllCars();
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
