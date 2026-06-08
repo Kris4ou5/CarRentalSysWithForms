@@ -23,7 +23,13 @@ namespace CarRentalForms
             rentalSrvc = rentalService;
         }
 
-      
+        private void CalculateRentForm_Load(object sender, EventArgs e)
+        {
+            cmbCars.DataSource =
+                carSrvc.GetAllCars();
+
+            cmbCars.DisplayMember = "Model";
+        }
 
         private void CalculateRent_Load(object sender, EventArgs e)
         {
