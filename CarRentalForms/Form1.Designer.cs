@@ -30,6 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             panelSideMain = new Panel();
+            btnRefresh = new Button();
             btnMain = new Button();
             panel3 = new Panel();
             btnCars = new Button();
@@ -64,7 +65,6 @@
             label5 = new Label();
             labelCurPanel = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
-            btnRefresh = new Button();
             panelSideMain.SuspendLayout();
             panelLogo.SuspendLayout();
             pCurPanel.SuspendLayout();
@@ -92,6 +92,16 @@
             panelSideMain.Name = "panelSideMain";
             panelSideMain.Size = new Size(216, 575);
             panelSideMain.TabIndex = 0;
+            // 
+            // btnRefresh
+            // 
+            btnRefresh.Location = new Point(3, 502);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(204, 28);
+            btnRefresh.TabIndex = 2;
+            btnRefresh.Text = "Refresh";
+            btnRefresh.UseVisualStyleBackColor = true;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // btnMain
             // 
@@ -221,7 +231,7 @@
             // dgvCars
             // 
             dgvCars.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCars.Location = new Point(262, 68);
+            dgvCars.Location = new Point(252, 68);
             dgvCars.Name = "dgvCars";
             dgvCars.Size = new Size(476, 311);
             dgvCars.TabIndex = 5;
@@ -436,16 +446,6 @@
             // timer1
             // 
             timer1.Tick += timer1_Tick;
-            // 
-            // btnRefresh
-            // 
-            btnRefresh.Location = new Point(3, 502);
-            btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(204, 28);
-            btnRefresh.TabIndex = 2;
-            btnRefresh.Text = "Refresh";
-            btnRefresh.UseVisualStyleBackColor = true;
-            btnRefresh.Click += btnRefresh_Click;
             // 
             // Form1
             // 

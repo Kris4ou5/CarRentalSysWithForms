@@ -23,6 +23,7 @@ namespace CarRentalForms
         private void Form1_Load(object sender, EventArgs e)
         {
             labelCurPanel.Text = "Main";
+            panelMain.BringToFront();
         }
 
         private void btnCustomers_Click(object sender, EventArgs e)
@@ -140,7 +141,12 @@ namespace CarRentalForms
 
         private void btnChangeCarStatus_Click(object sender, EventArgs e)
         {
-
+            Car selectedCar = dgvCars.CurrentRow.DataBoundItem as Car;
+            if (selectedCar == null) throw new ArgumentException("Избери кола!!!");
+            Form changeStatusForm = new ChangeCarStatusForm(selectedCar, carSrvc);
+            changeStatusForm.ShowDialog();
+            if (DialogResult.OK != changeStatusForm.DialogResult)
+                throw new ArgumentException("Greshka pri smqna");
         }
 
         private void btnAvailableCars_Click(object sender, EventArgs e)
