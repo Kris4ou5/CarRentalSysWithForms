@@ -171,7 +171,12 @@ namespace CarRentalForms
             LoadRentalsData();
             dgvCars.DataSource = carSrvc.GetAllCars();
             dataCustomers.DataSource = customerSrvc.GetAllCustomers();
-            
+
+        }
+
+        private void panelCars_Paint(object sender, PaintEventArgs e)
+        {
+
         }
         //Rents
 
