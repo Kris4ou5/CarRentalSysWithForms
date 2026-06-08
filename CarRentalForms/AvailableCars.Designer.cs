@@ -51,7 +51,7 @@
             // 
             // btnSearch
             // 
-            btnSearch.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            btnSearch.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             btnSearch.Location = new Point(12, 142);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(200, 34);

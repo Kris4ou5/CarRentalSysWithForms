@@ -27,8 +27,7 @@ namespace CarRentalForms
             DateTime start = dtStart.Value;
             DateTime end = dtEnd.Value;
 
-            dgvAvailableCars.DataSource =
-                carSrvc.GetAvailableCarsForPeriod(start, end);
+            dgvAvailableCars.DataSource = carSrvc.GetAvailableCarsForPeriod(start, end);
         }
 
         private void AvailableCars_Load(object sender, EventArgs e)
