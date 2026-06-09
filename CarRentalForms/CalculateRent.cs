@@ -47,6 +47,9 @@ namespace CarRentalForms
             decimal price = rentalSrvc.Price(selectedCar, days, promo);
 
             txtResult.Text = price.ToString("F2") + " lv";
+
+            DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void label4_Click(object sender, EventArgs e)
