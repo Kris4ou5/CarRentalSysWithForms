@@ -63,7 +63,7 @@ namespace CarRentalForms
         {
             dgvCars.DataSource = carSrvc.GetAllCars();
             dgvRentals.DataSource = rentalSrvc.GetAllRentals();
-            dgvDmg.DataSource = 
+            //dgvDmg.DataSource = 
 
         }
     }
