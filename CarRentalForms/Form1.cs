@@ -77,6 +77,8 @@ namespace CarRentalForms
         private void btnRentals_Click(object sender, EventArgs e)
         {
             labelCurPanel.Text = "Rentals";
+            RentalsForms rntForm = new RentalsForms(rentalSrvc, customerSrvc, carSrvc);
+            rntForm.ShowDialog();
         }
 
         private void btnCars_Click(object sender, EventArgs e)
@@ -128,7 +130,7 @@ namespace CarRentalForms
         }
         public void LoadRentalsData()
         {
-            dataGridMainRentals.DataSource = rentalSrvc.GetActiveRentals();
+            dataGridMainRentals.DataSource = rentalSrvc.GetAllRentals();
         }
         //CARS
         private void btnAddCar_Click(object sender, EventArgs e)

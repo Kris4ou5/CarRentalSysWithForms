@@ -238,5 +238,12 @@ namespace CarRentalSys.Application.Services
         {
             return _rentalRepo.GetAll();
         }
+
+        public IReadOnlyList<Damage> GetAllDMG(int rentalId)
+        {
+            var rental = _rentalRepo.GetById(rentalId);
+
+            return rental.Inspection.Damages;
+        }
     }
 }

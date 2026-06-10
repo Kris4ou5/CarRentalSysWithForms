@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CarRentalSys.Application.Interfaces;
 using CarRentalSys.Domain.Entities;
+using CarRentalSys.Domain.RentalObjects;
 
 namespace CarRentalSys.Infrastructure.EFData
 {
@@ -21,6 +22,7 @@ namespace CarRentalSys.Infrastructure.EFData
            return _context.Rentals.ToList();
         }
 
+        
         public Rentals GetById(int id)
         {
             var rental = _context.Rentals.FirstOrDefault(x => x.Id == id);
