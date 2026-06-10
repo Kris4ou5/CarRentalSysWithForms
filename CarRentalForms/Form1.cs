@@ -146,22 +146,32 @@ namespace CarRentalForms
             Form changeStatusForm = new ChangeCarStatusForm(selectedCar, carSrvc);
             changeStatusForm.ShowDialog();
             if (DialogResult.OK != changeStatusForm.DialogResult)
-                throw new ArgumentException("Greshka pri smqna");
+                throw new ArgumentException("Грешка при смяна");
         }
 
         private void btnAvailableCars_Click(object sender, EventArgs e)
         {
+            AvailableCars form = new AvailableCars(carSrvc);
 
+            form.ShowDialog();
         }
 
         private void btnPriceCalc_Click(object sender, EventArgs e)
         {
+            CalculateRent form = new CalculateRent( carSrvc, rentalSrvc);
 
+            form.ShowDialog();
         }
 
         private void btnService_Click(object sender, EventArgs e)
         {
+            SendCarToService form = new SendCarToService (carSrvc);
 
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                dgvCars.DataSource = null;
+                dgvCars.DataSource = carSrvc.GetAllCars();
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -171,9 +181,16 @@ namespace CarRentalForms
             LoadRentalsData();
             dgvCars.DataSource = carSrvc.GetAllCars();
             dataCustomers.DataSource = customerSrvc.GetAllCustomers();
-            
+
+        }
+
+        private void panelCars_Paint(object sender, PaintEventArgs e)
+        {
+
         }
         //Rents
+
+
 
     }
 }

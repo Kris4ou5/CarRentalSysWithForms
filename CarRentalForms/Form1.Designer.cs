@@ -227,6 +227,7 @@
             panelCars.Name = "panelCars";
             panelCars.Size = new Size(770, 482);
             panelCars.TabIndex = 2;
+            panelCars.Paint += panelCars_Paint;
             // 
             // dgvCars
             // 
